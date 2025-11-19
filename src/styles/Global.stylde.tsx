@@ -29,6 +29,9 @@ export const GlobalStyle = createGlobalStyle`
         }
         color: ${Theme.colors.font}
     }
+    section{
+        padding: 100px 0;
+    }
 section:nth-of-type(odd){
     background-color: ${Theme.colors.primaryBg};
 }
