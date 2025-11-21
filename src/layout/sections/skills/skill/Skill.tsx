@@ -27,9 +27,13 @@ const StyledSkill = styled.div`
     padding: 62px 20px 40px;
 `
 const SkillTitle = styled.h3`
-margin: 70px 15px;`
-const SkillText = styled.p``
-const IconWrapper = styled.div`
+margin: 70px 15px;
+text-transform: uppercase;`
+const SkillText = styled.p`
+    text-align: center;
+    line-height: 1.4;
+`
+export const IconWrapper = styled.div`
 position: relative;
 &::before{
     content: '';
@@ -37,8 +41,7 @@ position: relative;
     width: 80px;
     height: 80px;
     background: rgba(255, 255, 255, 0.1);
-    /*transform: rotate(-45deg) translate(-50%, -50%);*/
-    transform: translate(-50%, -50%);
+    transform: rotate(-45deg) translate(-50%, -50%);
     
     position: absolute;
     left: 50%;

@@ -3,13 +3,16 @@ import {SectionTitle} from "../../../components/menu/SectionTitle.tsx";
 import {Icon} from "../../../components/icon/Icon.tsx";
 import {Slider} from "../../../components/slider/Slider.tsx";
 import {FlexWrapper} from "../../../components/menu/FlexWrapper.tsx";
+import {IconWrapper} from "../skills/skill/Skill.tsx";
 
 export const Testimony = () => {
     return (
         <StyledTestimony>
             <FlexWrapper direction={"column"} align={"center"}>
                 <SectionTitle>Testimony</SectionTitle>
-                <Icon iconID={"redGit"}/>
+                <IconWrapper>
+                    <Icon iconID={"redGit"} width={'50'} height={'50'} />
+                </IconWrapper>
                 <Slider/>
             </FlexWrapper>
         </StyledTestimony>
@@ -17,5 +20,7 @@ export const Testimony = () => {
 };
 
 const StyledTestimony = styled.section`
-    min-height: 50vh;
-    background: #e985ec`
+${IconWrapper}{
+    margin: 92px 0 72px;
+}
+`
