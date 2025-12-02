@@ -28,6 +28,9 @@ const StyledHeaderMenu = styled.nav`
         display: flex;
         gap: 30px
     }
+    @media ${Theme.media.tablet} {
+        display: none;        
+    }
 `
 const Link = styled.a`
     font-family:  "Poppins", sans-serif;;
