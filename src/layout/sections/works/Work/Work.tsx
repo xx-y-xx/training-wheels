@@ -27,6 +27,8 @@ export const Work = (props: WorksPropsType) => {
     );
 };
 const StyledWork = styled.div`
+    width: 330px;
+    flex-grow: 1;
     background-color: ${Theme.colors.secondaryBg};    
     
 ${Link}{
@@ -37,41 +39,59 @@ ${Link}{
         margin-left: 20px;
     }
 }
+    @media ${Theme.media.desktop}{
+        max-width: 540px;
+    }
 `
 const ImageWrapper = styled.div`
-position: relative;
+    position: relative;
+
     &:hover {
-        ${Button}{
-            opacity: 1;;}
-        &::before{
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            backdrop-filter: blur(8px);
-            background: rgba(0, 0, 0, 0.3);            
+        ${Button} {
+            opacity: 1;
+        }
+        &::before {
+            opacity: 1;
         }
     }
-${Button}{
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    
-    &::before{
-        width: 100%;
-        height: 100%;
+
+    ${Button} {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        &::before {
+            width: 100%;
+            height: 100%;
+        }
     }
-}
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        backdrop-filter: blur(8px);
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+    }
+    @media ${Theme.media.tablet} {
+        ${Button} {
+            opacity: 1;
+        }
+        &::before {
+            opacity: 1;
+        }
+    }
 `
 
 const Image = styled.img`
-    width: 50%;
+    width: 100%;
     height: 260px;
-    object-fit: contain;
+    object-fit: cover;
 `
 const Description = styled.div`
 padding: 25px 20px;`

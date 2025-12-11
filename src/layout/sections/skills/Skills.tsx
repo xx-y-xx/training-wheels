@@ -20,7 +20,6 @@ export const Skills = () => {
                         <Skill iconID={"redGit"} title={"html 5"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut"} />
                     </FlexWrapper>
                 </Container>
-
             </StyledSkills>
         </div>
     );

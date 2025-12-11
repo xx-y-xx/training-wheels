@@ -19,10 +19,11 @@ return (
 const StyledTabMenu = styled.nav`    
     ul {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        gap: 30px;
-        margin-bottom: 40px;
+        max-width: 352px;
+        width: 100%;
+        margin:0 auto 40px;
     }
 `
 const ListItem = styled.li``
