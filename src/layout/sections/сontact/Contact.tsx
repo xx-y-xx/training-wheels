@@ -1,55 +1,20 @@
-import styled from "styled-components";
 import {SectionTitle} from "../../../components/menu/SectionTitle.tsx";
-import {Button} from "../../../components/button/button.tsx";
+import {Button} from "../../../components/button/button.ts";
 import {Container} from "../../../components/Container.tsx";
-import {Theme} from "../../../styles/Theme.tsx";
+import {S} from "./Contact_Styles.ts"
 
-export const Contact = () => {
+export const Contact: React.FC = () => {
     return (
-        <StyledContact>
+        <S.Contact>
             <SectionTitle>Contact</SectionTitle>
             <Container>
-                <StyledForm>
-                    <Field placeholder={"name"}></Field>
-                    <Field placeholder={"subject"}></Field>
-                    <Field placeholder={"message"} as={"textarea"}></Field>
+                <S.Form>
+                    <S.Field placeholder={"name"}></S.Field>
+                    <S.Field placeholder={"subject"}></S.Field>
+                    <S.Field placeholder={"message"} as={"textarea"}></S.Field>
                     <Button type={"submit"}>Send message</Button>
-                </StyledForm>
+                </S.Form>
             </Container>
-
-        </StyledContact>
+        </S.Contact>
     );
 };
-
-const StyledContact = styled.section``
-const StyledForm = styled.form`
-    max-width: 540px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin: 0 auto;
-
-textarea {
-    resize: none;
-    height: 150px;
-}
-`
-const Field = styled.input`
-    border: 1px solid ${Theme.colors.borderColor};
-    background-color: ${Theme.colors.secondaryBg};
-    padding: 7px 15px;
-    width: 100%;    
-    
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    color: ${Theme.colors.font};
-    
-    &::placeholder {
-        color: ${Theme.colors.font};
-        text-transform: capitalize;
-    }    
-`

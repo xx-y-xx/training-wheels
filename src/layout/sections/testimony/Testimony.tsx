@@ -3,18 +3,19 @@ import {SectionTitle} from "../../../components/menu/SectionTitle.tsx";
 import {Icon} from "../../../components/icon/Icon.tsx";
 import {Slider} from "../../../components/slider/Slider.tsx";
 import {FlexWrapper} from "../../../components/menu/FlexWrapper.tsx";
-import {IconWrapper} from "../skills/skill/Skill.tsx";
+import {S} from "../skills/skill/Skills_Styles.ts";
 import {Container} from "../../../components/Container.tsx";
+import React from "react";
 
-export const Testimony = () => {
+export const Testimony:React.FC = () => {
     return (
         <StyledTestimony>
             <Container>
                 <FlexWrapper direction={"column"} align={"center"}>
                     <SectionTitle>Testimony</SectionTitle>
-                    <IconWrapper>
+                    <S.IconWrapper>
                         <Icon iconID={"redGit"} width={'50'} height={'50'}/>
-                    </IconWrapper>
+                    </S.IconWrapper>
                     <Slider/>
                 </FlexWrapper>
             </Container>
@@ -23,7 +24,7 @@ export const Testimony = () => {
 };
 
 const StyledTestimony = styled.section`
-    ${IconWrapper} {
+    ${S.IconWrapper} {
         margin: 92px 0 72px;
     }
 `

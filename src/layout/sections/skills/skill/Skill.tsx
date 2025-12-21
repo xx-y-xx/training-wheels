@@ -1,6 +1,8 @@
 import {Icon} from "../../../../components/icon/Icon.tsx";
 import {FlexWrapper} from "../../../../components/menu/FlexWrapper.tsx";
 import {S} from "./Skills_Styles.ts"
+import React from "react";
+
 
 type SkillsPropsType = {
     iconID: string
@@ -8,7 +10,7 @@ type SkillsPropsType = {
     text: string
 
 }
-export const Skill = (props: SkillsPropsType) => {
+export const Skill: React.FC<SkillsPropsType> = (props: SkillsPropsType) => {
     return (
         <S.Skill>
             <FlexWrapper direction={'column'} align={'center'}>

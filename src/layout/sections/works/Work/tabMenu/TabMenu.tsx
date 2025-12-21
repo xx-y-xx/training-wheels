@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from "../../../../../components/link/Link.tsx";
+import {Link} from "../../../../../components/link/Link.ts";
 
 export const TabMenu = (props:{menuItems:Array<string>}) => {
 
