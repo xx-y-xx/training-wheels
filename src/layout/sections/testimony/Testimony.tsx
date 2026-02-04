@@ -9,7 +9,7 @@ import React from "react";
 
 export const Testimony:React.FC = () => {
     return (
-        <StyledTestimony>
+        <StyledTestimony id={'testimony'}>
             <Container>
                 <FlexWrapper direction={"column"} align={"center"}>
                     <SectionTitle>Testimony</SectionTitle>

@@ -57,7 +57,7 @@ export const Works: React.FC = () => {
         setCurrentFilterStatus(value)
     }
     return (
-        <S.Works>
+        <S.Works id={'works'}>
             <Container>
                 <SectionTitle>Works</SectionTitle>
                 <TabMenu menuItems={tabsItems} changeFilterStatus={changeFilterStatus} currentFilterStatus={currentFilterStatus}/>

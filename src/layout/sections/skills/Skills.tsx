@@ -41,7 +41,7 @@ const skillDatta = [
 export const Skills = () => {
     return (
         <div>
-            <S.Skills>
+            <S.Skills id={'skills'}>
                 <Container>
                     <SectionTitle>My Skills</SectionTitle>
                     <FlexWrapper wrap={'wrap'}>

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 //🔶🔷 Skills.tsx
-const Skills = styled.section``
+const Skills = styled.section`
+position: relative;
+`
 
 //🔶🔷 Skill.tsx
 const Skill = styled.div`
