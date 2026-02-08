@@ -7,6 +7,7 @@ type WorksPropsType = {
     title: string
     text: string
     src:string
+    id:number
 }
 
 export const Work: React.FC<WorksPropsType> = (props: WorksPropsType) => {

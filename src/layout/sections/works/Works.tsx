@@ -6,17 +6,20 @@ import {Container} from "../../../components/Container.tsx";
 import {TabMenu, TabsStatusType} from "./Work/tabMenu/TabMenu.tsx";
 import React, {useState} from "react";
 import {S} from "./Works_Styles.ts"
+import {motion, AnimatePresence} from "motion/react";
 
 const workData = [{
     title: 'Social Networks',
     src: socialImg,
     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    type: 'landing'
+    type: 'landing',
+    id:1,
 }, {
     title: 'Timer',
     src: socialImg,
     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    type: 'spa'
+    type: 'spa',
+    id:2,
 }]
 
 const tabsItems: Array<{ status: TabsStatusType, title: string }> = [
@@ -53,18 +56,32 @@ export const Works: React.FC = () => {
         filteredWorks = workData.filter(work => work.type === 'spa')
     }
 
-    function changeFilterStatus(value:TabsStatusType){
+    function changeFilterStatus(value: TabsStatusType) {
         setCurrentFilterStatus(value)
     }
+
     return (
         <S.Works id={'works'}>
             <Container>
                 <SectionTitle>Works</SectionTitle>
-                <TabMenu menuItems={tabsItems} changeFilterStatus={changeFilterStatus} currentFilterStatus={currentFilterStatus}/>
+                <TabMenu menuItems={tabsItems} changeFilterStatus={changeFilterStatus}
+                         currentFilterStatus={currentFilterStatus}/>
                 <FlexWrapper justify={'space-between'} align={'flex-start'}>
-                    {filteredWorks.map((w, index) => {
-                        return <Work title={w.title} text={w.text} key={index} src={socialImg}/>
-                    })}
+                    <AnimatePresence>
+                        {filteredWorks.map((w, index) => {
+                            return (
+                                <motion.div style={{  width: '430px', flexGrow: '1px', maxWidth: "540px"}}
+                                    layout={true}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    key={w.id}
+                                >
+                                    <Work title={w.title} text={w.text} key={index} src={socialImg} id={w.id}/>
+                                </motion.div>
+                            )
+                        })}
+                    </AnimatePresence>
                 </FlexWrapper>
             </Container>
         </S.Works>

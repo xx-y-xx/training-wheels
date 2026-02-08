@@ -6,8 +6,8 @@ import {FlexWrapper} from "../../../components/menu/FlexWrapper.tsx";
 
 //🔶🔷 Work.tsx
 const Work = styled.div`
-    width: 330px;
-    flex-grow: 1;
+    /*width: 330px;
+    flex-grow: 1;*/
     background-color: ${Theme.colors.secondaryBg};    
     
 ${Link}{
