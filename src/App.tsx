@@ -1,28 +1,17 @@
 import './App.css'
-import {Header} from "./layout/header/Header.tsx";
-import {Main} from "./layout/sections/main/Main.tsx";
-import {Skills} from "./layout/sections/skills/Skills.tsx";
-import {Works} from "./layout/sections/works/Works.tsx";
-import {Testimony} from "./layout/sections/testimony/Testimony.tsx";
-import {Contact} from "./layout/sections/сontact/Contact.tsx";
-import {Slogan} from "./layout/sections/slogan/Slogan.tsx";
-import {Footer} from "./layout/footer/Footer.tsx";
-import {Particle} from "./components/particle/Particle.tsx";
-import {GoTopBtn} from "./components/goTopBtn/GoTopBtn.tsx";
+import {Button} from './componets/Button.tsx'
 
 function App() {
+    const Button1Foo = (subscriber:string, age:number) => {
+        console.log(subscriber,age)
+    }
+    /*const Button2Foo = (subscriber) => {
+        console.log(subscriber)
+    }*/
     return (
         <div className="App">
-            <Particle/>
-            <Header />
-            <Main/>
-            <Skills/>
-            <Works/>
-            <Testimony/>
-            <Contact/>
-            <Slogan/>
-            <Footer/>
-            <GoTopBtn/>
+            <Button name={'MyYoutubeChanel-1'} callback={()=>Button1Foo('haha', 21)}/>
+            {/*<Button name={'MyYoutubeChanel-2'} callback={Button2Foo}/>*/}
         </div>
     )
 }
