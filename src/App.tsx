@@ -1,55 +1,125 @@
-import './App.css'
-import {useState} from "react";
+import './App.css';
+import {TaskList} from "./components/TaskList.tsx";
 
-type FilterType ='all'|'dollar'|'ruble';
-
-function App() {
-    const [money, setMoney] = useState([
-        {banknote: 'dollar', nominal: 100, number: ' a1234567890'},
-        {banknote: 'dollar', nominal: 50, number: ' z1234567890'},
-        {banknote: 'ruble', nominal: 100, number: ' w1234567890'},
-        {banknote: 'dollar', nominal: 100, number: ' e1234567890'},
-        {banknote: 'dollar', nominal: 50, number: ' c1234567890'},
-        {banknote: 'ruble', nominal: 100, number: ' r1234567890'},
-        {banknote: 'dollar', nominal: 50, number: ' x1234567890'},
-        {banknote: 'ruble', nominal: 50, number: ' v1234567890'},
-    ])
-
-    const [filterMoney, setFilter] = useState<FilterType>('all')
-
-    let currenMoney = money
-
-    if (filterMoney === 'ruble') {
-        currenMoney = money.filter((f) => f.banknote === 'ruble')
+export const App = ()=> {
+    const data1 = {
+        title: "What to do",
+        tasks: [
+            {taskId: 1, title: "HTML&CSS2", isDone: true},
+            {taskId: 2, title: "JS2", isDone: true}
+        ],
+        students: [
+            'Jago Wormald1',
+            'Saul Milne2',
+            'Aariz Hester3',
+            'Dion Reeve4',
+            'Anisa Ortega5',
+            'Blade Cisneros6',
+            'Malaikah Phelps7',
+            'Zeeshan Gallagher8',
+            'Isobella Vo9',
+            'Rizwan Mathis10',
+            'Menaal Leach11',
+            'Kian Walton12',
+            'Orion Lamb13',
+            'Faizah Huynh14',
+            'Crystal Vaughan15',
+            'Vivien Hickman16',
+            'Stuart Lu17',
+            'Karol Davison18',
+            'Dario Burns19',
+            'Chloe Rich20',
+            'Martyna Felix',
+            'Nida Glass',
+            'Maeve Miles',
+            'Hasnain Puckett',
+            'Ayman Cano',
+            'Safwan Perry',
+            'Fox Kelly',
+            'Louise Barlow',
+            'Malaki Mcgill',
+            'Leanna Cline',
+            'Willard Hodge',
+            'Amelia Dorsey',
+            'Kiah Porter',
+            'Jeanne Daly',
+            'Mohsin Armstrong',
+            'Laurie Rangel',
+            'Princess Tierney',
+            'Kasim Kendall',
+            'Darryl Cope',
+            'Elysha Ray',
+            'Liyana Harris',
+            'Kashif Blackburn',
+            'Atif Zimmerman',
+            'Sila Hartley',
+            'Ralphie Hebert',
+        ]
     }
-    if (filterMoney === 'dollar') {
-        currenMoney = money.filter((f) => f.banknote === 'dollar')
+    const data2 =   {
+        title: "What to learn",
+        tasks: [
+            {taskId: 1, title: "HTML&CSS", isDone: true},
+            {taskId: 2, title: "JS", isDone: true}
+        ],
+        students: [
+            'Rick Kane',
+            'Finnlay Bentley',
+            'Samia North',
+            'Isaac Morton',
+            'Lily-Ann Clifford',
+            'Thalia Park',
+            'Sapphire Cruz',
+            'Cieran Vazquez',
+            'Anya Estes',
+            'Dominika Field',
+            'Rosanna Chung',
+            'Safiyah Davey',
+            'Ryley Beasley',
+            'Kalvin Trejo',
+            'Evie-Mae Farrell',
+            'Juliet Valencia',
+            'Astrid Austin',
+            'Lyle Montgomery',
+            'Nisha Mora',
+            'Kylie Callaghan',
+            'Star Wilks',
+            'Marissa Colley',
+            'Asa Fuller',
+            'Leigh Kemp',
+            'Avleen Dawson',
+            'Sammy Bonilla',
+            'Acacia Becker',
+            'Coral Shepherd',
+            'Melina Molina',
+            'Kiran Bailey',
+            'Clara Escobar',
+            'Alexandru Horn',
+            'Brandon-Lee Mercado',
+            'Elouise Weston',
+            'King Long',
+            'Kerri Searle',
+            'Kanye Hamer',
+            'Elwood Benitez',
+            'Mikail Whitaker',
+            'Bobby Hardy',
+            'Talha Ferry',
+            'Priscilla Landry',
+            'Olivia-Grace Cain',
+            'Kiaan Wallace',
+            'Wesley Padilla90',
+            'Ella-Grace Wooten91',
+            'Kaif Molloy92',
+            'Kamal Broadhurst93',
+            'Bianca Ferrell94',
+            'Micheal Talbot95',
+        ]
     }
-    const onClickFilterHandler = (nameButton: FilterType) => {
-        setFilter(nameButton);
-    }
-
 
     return (
-        <>
-            <ul>
-                {currenMoney.map((objFromMoneyArr, index) => {
-                    return (
-                        <li key={index}>
-                            <span> {objFromMoneyArr.banknote}</span>
-                            <span> {objFromMoneyArr.nominal}</span>
-                            <span> {objFromMoneyArr.number}</span>
-                        </li>
-                    )
-                })}
-            </ul>
-            <div style={{marginLeft: '35px'}}>
-                <button onClick={() => onClickFilterHandler('all')}>all</button>
-                <button onClick={() => onClickFilterHandler('ruble')}>rubles</button>
-                <button onClick={() => onClickFilterHandler("dollar")}>dollars</button>
-            </div>
-        </>
+        <div className="App">
+            <TaskList title={data1.title} students={data1.students} tasks={data1.tasks}/>
+            {/*<TaskList data={data2}/>*/}
+        </div>
     );
 }
-
-export default App
