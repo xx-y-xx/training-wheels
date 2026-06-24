@@ -1,47 +1,60 @@
-import {useState} from "react";
-import {InputMicro} from "./componets/Input.tsx";
-import {ButtonMicro} from "./componets/Button.tsx";
+import {useState} from 'react';
+import './App.css';
+import {Todolist} from './Todolist';
+import {v1} from 'uuid';
 
-function App() {
-    const [message, setMessage] = useState([
-            {message: 'message1'},
-            {message: 'message2'},
-            {message: 'message3'},
-            {message: 'message4'},
-            {message: 'message5'}
-        ]
-    )
+export type FilterValuesType = "all" | "active" | "completed";
 
-    let [title, setTitle] = useState('');
+export const App = () => {
+    let [tasks, setTasks] = useState([
+        {id: v1(), title: "HTML&CSS", isDone: true},
+        {id: v1(), title: "JS", isDone: true},
+        {id: v1(), title: "ReactJS", isDone: false},
+        {id: v1(), title: "Rest API", isDone: false},
+        {id: v1(), title: "GraphQL", isDone: false},
+    ]);
 
-    const addMessage = (title: string) => {
-        let newMessage = {message: title};
-        setMessage([newMessage, ...message]);
+    function removeTask(id: string) {
+        let filteredTasks = tasks.filter(t => t.id != id);
+        setTasks(filteredTasks);
     }
 
-    const callBackButtonHandler = () => {
-        addMessage(title);
-        setTitle('');
+    function addTask(title: string) {
+        let task = {id: v1(), title: title, isDone: false};
+        let newTasks = [task, ...tasks];
+        setTasks(newTasks);
     }
-    const callBackDeleteButton = () => {
-        setMessage([]);
+
+    let [filter, setFilter] = useState<FilterValuesType>("all");
+
+    //выполнение задания
+    function getFilteredTasks (activFilter: FilterValuesType) {
+        let tasksForTodolist = tasks
+
+        if (activFilter === 'active') {
+            return (tasksForTodolist = tasks.filter(t => !t.isDone))
+        }
+        if (activFilter === 'completed') {
+            return (tasksForTodolist = tasks.filter(t => t.isDone))
+        }
+        return tasksForTodolist
     }
+
+    //выполнение задания
+
+
+    function changeFilter(value: FilterValuesType) {
+        setFilter(value);
+    }
+
+
     return (
         <div className="App">
-            {/*<div>
-                <input />
-                <button>+</button>
-            </div>*/}
-            <InputMicro title={title} setTitle={setTitle}></InputMicro>
-            <ButtonMicro name={'+'} callBack={callBackButtonHandler}></ButtonMicro>
-            <ButtonMicro name={'delete'} callBack={callBackDeleteButton}></ButtonMicro>
-            {message.map((el, index) => {
-                return (
-                    <div key={index}>{el.message}</div>
-                )
-            })}
+            <Todolist title="What to learn"
+                      tasks={getFilteredTasks(filter)}
+                      removeTask={removeTask}
+                      changeFilter={changeFilter}
+                      addTask={addTask}/>
         </div>
     );
 }
-
-export default App;
